@@ -77,3 +77,7 @@ C:\Users\Croissasnt\Desktop\aspmvc\BookStore\obj\Debug\BookStore.csproj.CoreComp
 C:\Users\Croissasnt\Desktop\aspmvc\BookStore\obj\Debug\BookStore.csproj.CopyComplete
 C:\Users\Croissasnt\Desktop\aspmvc\BookStore\obj\Debug\BookStore.dll
 C:\Users\Croissasnt\Desktop\aspmvc\BookStore\obj\Debug\BookStore.pdb
+C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.dll
+C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.SqlServer.dll
+C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.xml
+C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.SqlServer.xml

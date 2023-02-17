@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace BookStore.Models
 {
@@ -20,5 +21,10 @@ namespace BookStore.Models
         public string BookName { get; set; }
 
         public bool Reserved { get; set; } = false;
+    }
+
+    public class BooksDBContext : DbContext
+    {
+        public DbSet<Books> Books { get; set; }
     }
 }
