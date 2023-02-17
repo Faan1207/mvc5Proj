@@ -1,0 +1,13 @@
+﻿@model BookStore.Models.Book
+
+@{
+    ViewBag.Title = "Reservation";
+}
+
+<h2>Reservation</h2>
+
+<p>Book id is @Html.DisplayFor(model => model.Id) </p>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

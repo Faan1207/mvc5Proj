@@ -15,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{29
 		ReserveBook.cs = ReserveBook.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{7273D7BA-06C3-4519-B796-17BD33CF2710}"
+	ProjectSection(SolutionItems) = preProject
+		IServices.cs = IServices.cs
+		Services.cs = Services.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -30,6 +30,19 @@ namespace BookStore.Controllers
             return View(books);
         }
 
+        public ActionResult Reservation(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
+            }
+            Book books = db.Book.Find(id);
+            if (books == null)
+            {
+                return HttpNotFound();
+            }
+            return View(books);
+        }
         // GET: Books/Details/5
         public ActionResult Details(string id)
         {
