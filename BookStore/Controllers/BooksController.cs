@@ -7,18 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookStore.Models;
+using BookStore.DAL;
 
 namespace BookStore.Controllers
 {
     public class BooksController : Controller
     {
-        private BookDBContext db = new BookDBContext();
+        private BookStoreContext db = new BookStoreContext();
 
         // GET: Books
         public ActionResult Index(string searchString)
         {
             //LINQ to get books
-            var books = from m in db.Book
+            var books = from m in db.Books
                         select m;
 
             //look for books that contains a non-empty search string
@@ -30,19 +31,28 @@ namespace BookStore.Controllers
             return View(books);
         }
 
+        //Reserve Book Function
+
         public ActionResult Reservation(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
             }
-            Book books = db.Book.Find(id);
+            Book books = db.Books.Find(id);
+
+            //add bookreserved event and set reserved status for this book as true
+            db.Reservations.Add(new ReservationEvents { Id = Guid.NewGuid(),  BookId = id, BookName = books.BookName });
+            books.Reserved = true;
+            db.SaveChanges();
+
             if (books == null)
             {
                 return HttpNotFound();
             }
             return View(books);
         }
+
         // GET: Books/Details/5
         public ActionResult Details(string id)
         {
@@ -50,7 +60,7 @@ namespace BookStore.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book books = db.Book.Find(id);
+            Book books = db.Books.Find(id);
             if (books == null)
             {
                 return HttpNotFound();
@@ -73,7 +83,7 @@ namespace BookStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Book.Add(books);
+                db.Books.Add(books);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -88,7 +98,7 @@ namespace BookStore.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book books = db.Book.Find(id);
+            Book books = db.Books.Find(id);
             if (books == null)
             {
                 return HttpNotFound();
@@ -119,7 +129,7 @@ namespace BookStore.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book books = db.Book.Find(id);
+            Book books = db.Books.Find(id);
             if (books == null)
             {
                 return HttpNotFound();
@@ -132,8 +142,8 @@ namespace BookStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Book books = db.Book.Find(id);
-            db.Book.Remove(books);
+            Book books = db.Books.Find(id);
+            db.Books.Remove(books);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

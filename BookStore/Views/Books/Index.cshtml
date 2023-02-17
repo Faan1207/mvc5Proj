@@ -49,10 +49,11 @@
                     @(item.Reserved ? "Reserved" : "Not Reserved")
                 </td>
                 <td>
+                    <!-- If the book is not reserved, show a button that directs to reservation page, else display reserved message-->
                     @if (!item.Reserved)
                     {
-                            <button onclick="location.href = '@Url.Action("Reservation", "Books",  new { id = item.Id })';
-                                return false;">Reserve</button>
+                        <button onclick="location.href = '@Url.Action("Reservation", "Books",  new { id = item.Id })';
+                            return false;">Reserve</button>
                     }
                     else
                     {

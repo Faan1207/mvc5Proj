@@ -129,15 +129,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\BookStoreConfiguration.cs" />
+    <Compile Include="DAL\BookStoreContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202302170156310_InitialCreate.cs" />
-    <Compile Include="Migrations\202302170156310_InitialCreate.designer.cs">
-      <DependentUpon>202302170156310_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202302171602078_InitialCreate.cs" />
+    <Compile Include="Migrations\202302171602078_InitialCreate.designer.cs">
+      <DependentUpon>202302171602078_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\ReservationEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,8 +203,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202302170156310_InitialCreate.resx">
-      <DependentUpon>202302170156310_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202302171602078_InitialCreate.resx">
+      <DependentUpon>202302171602078_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

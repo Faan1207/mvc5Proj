@@ -22,9 +22,4 @@ namespace BookStore.Models
 
         public bool Reserved { get; set; } = false;
     }
-
-    public class BookDBContext : DbContext
-    {
-        public DbSet<Book> Book { get; set; }
-    }
 }
