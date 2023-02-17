@@ -28,6 +28,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Reserved)
             </th>
+            <th>
+                Reservation
+            </th>
             <th></th>
         </tr>
 
@@ -46,10 +49,20 @@
                     @(item.Reserved ? "Reserved" : "Not Reserved")
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-                    @Html.ActionLink("Reserve", "Reservation", new { id = item.Id} )
+                    @if (!item.Reserved)
+                    {
+                            <button onclick="location.href = '@Url.Action("Reservation", "Books",  new { id = item.Id })';
+                                return false;">Reserve</button>
+                    }
+                    else
+                    {
+                        <p>Already Reserved</p>
+                    }
+                    <!--
+    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+    @Html.ActionLink("Reserve", "Reservation", new { id = item.Id} ) -->
                 </td>
             </tr>
         }
