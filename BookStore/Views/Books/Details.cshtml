@@ -1,4 +1,4 @@
-﻿@model BookStore.Models.Books
+﻿@model BookStore.Models.Book
 
 @{
     ViewBag.Title = "Details";
@@ -10,6 +10,15 @@
     <h4>Books</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.BookName)
         </dt>

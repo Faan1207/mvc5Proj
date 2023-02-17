@@ -81,3 +81,5 @@ C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.dll
 C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.SqlServer.dll
 C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.xml
 C:\Users\Croissasnt\Desktop\aspmvc\BookStore\bin\EntityFramework.SqlServer.xml
+C:\Users\Croissasnt\Desktop\aspmvc\BookStore\obj\Debug\BookStore.Migrations.InitialCreate.resources
+C:\Users\Croissasnt\Desktop\aspmvc\BookStore\obj\Debug\BookStore.csproj.GenerateResource.cache

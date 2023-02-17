@@ -1,4 +1,4 @@
-﻿@model BookStore.Models.Books
+﻿@model BookStore.Models.Book
 
 @{
     ViewBag.Title = "Delete";
@@ -24,7 +24,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Reserved)
+            <!-- Simple ternary to display reserved status, default is checkbox which looks ugly -->
+            @(item.Reserved ? "Reserved" : "Not Reserved")
         </dd>
 
     </dl>
