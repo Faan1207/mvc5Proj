@@ -15,9 +15,19 @@ namespace BookStore.Controllers
         private BookDBContext db = new BookDBContext();
 
         // GET: Books
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Book.ToList());
+            //LINQ to get books
+            var books = from m in db.Book
+                        select m;
+
+            //look for books that contains a non-empty search string
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.BookName.Contains(searchString));
+            }
+
+            return View(books);
         }
 
         // GET: Books/Details/5
