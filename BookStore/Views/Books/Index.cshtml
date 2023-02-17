@@ -23,6 +23,9 @@
                 @Html.DisplayNameFor(model => model.BookName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Reserved)
             </th>
             <th></th>
@@ -31,8 +34,12 @@
         @foreach (var item in Model)
         {
             <tr>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
                     <!-- Simple ternary to display reserved status, default is checkbox which looks ugly -->
