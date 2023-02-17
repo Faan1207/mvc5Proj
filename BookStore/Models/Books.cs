@@ -17,8 +17,8 @@ namespace BookStore.Models
         
         [Display(Name = "Book Title")]
         [Required]
-        public string name { get; set; }
+        public string BookName { get; set; }
 
-        public bool reserved { get; set; } = false;
+        public bool Reserved { get; set; } = false;
     }
 }
