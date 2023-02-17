@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using BookStore.Models;
 using BookStore.DAL;
+using Microsoft.Ajax.Utilities;
+using BookStore.ViewModel;
 
 namespace BookStore.Controllers
 {
@@ -42,7 +44,8 @@ namespace BookStore.Controllers
             Book books = db.Books.Find(id);
 
             //add bookreserved event and set reserved status for this book as true
-            db.Reservations.Add(new ReservationEvents { Id = Guid.NewGuid(),  BookId = id, BookName = books.BookName });
+            Guid newGuid = Guid.NewGuid();
+            db.Reservations.Add(new ReservationEvents { Id = newGuid,  BookId = id, BookName = books.BookName });
             books.Reserved = true;
             db.SaveChanges();
 
@@ -50,7 +53,12 @@ namespace BookStore.Controllers
             {
                 return HttpNotFound();
             }
-            return View(books);
+
+            ReservationViewModel resvm = new ReservationViewModel();
+            resvm.BookTitle = books.BookName;
+            resvm.BookingId = newGuid;
+
+            return View(resvm);
         }
 
         // GET: Books/Details/5
